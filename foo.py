@@ -15,20 +15,31 @@ from tts import TTS
 from shuttle import Shuttle
 import threading
 import snowboy.snowboydecoder as snowboydecoder
+import weather.weather as weather
+import gps
 
 class Form(QtWidgets.QDialog):
 	def __init__(self, parent=None):
 		QtWidgets.QDialog.__init__(self, parent)
 		self.ui = uic.loadUi("untitled.ui", self)
 		self.ui.show()
+		self.lat = 37.340348
+		self.lon = 126.6984882
+
+		
 
 		self.detector = snowboydecoder.HotwordDetector('snowboy/resources/이놈아.pmdl', sensitivity=0.6)
 		self.rc = recorder.Recorder()
 		self.tts = TTS()
 
-		t = threading.Thread(target=self.speechRecogStart)
-		t.daemon = True
-		t.start()
+		speech_thread = threading.Thread(target=self.speechRecogStart)
+		speech_thread.daemon = True
+		speech_thread.start()
+
+		gps_thread = threading.Thread(target=self.gpsStart)
+		gps_thread.daemon = True
+		gps_thread.start()
+
 		
 		
 	@pyqtSlot()
@@ -43,11 +54,17 @@ class Form(QtWidgets.QDialog):
 	def slot_pause(self):
 		print("정지?")
 
+	def setLatLon(self, value):
+		self.lat = value[0]
+		self.lon = value[1]
 
 	def speechRecogStart(self):
 		self.detector.start(detected_callback=self.gg , sleep_time=0.03)
 
-
+	def gpsStart(self):
+		mygps = gps.GPS()
+		mygps.on_changed_gps.connect(self.setLatLon)
+		mygps.run()
 
 	def gg(self):
 		self.detector.terminate()
@@ -62,6 +79,11 @@ class Form(QtWidgets.QDialog):
 		
 
 		if text is None:
+			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
+			return
+
+		if "날씨" in text:
+			self.tts.play_tts(weather.get_weather(self.lat, self.lon))
 			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
 			return
 
@@ -112,7 +134,7 @@ class Form(QtWidgets.QDialog):
 		
 if __name__ == '__main__':
 	import os
-	os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/pi/MyMic-b737a86ac104.json"
+	# os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/pi/MyMic-b737a86ac104.json"
 	app = QtWidgets.QApplication(sys.argv)
 	w = Form()
 	sys.exit(app.exec())
