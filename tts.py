@@ -26,3 +26,7 @@ class TTS():
 		    self.play_mp3('temp')
 		else:
 		    print("Error Code:" + rescode)
+
+
+tts = TTS()
+tts.play_tts('heeh')
