@@ -21,9 +21,10 @@ class Form(QtWidgets.QDialog):
 		QtWidgets.QDialog.__init__(self, parent)
 		self.ui = uic.loadUi("untitled.ui", self)
 		self.ui.show()
-		self.detector = snowboydecoder.HotwordDetector('snowboy/resources/이놈아.pmdl', sensitivity=0.6)
 
+		self.detector = snowboydecoder.HotwordDetector('snowboy/resources/이놈아.pmdl', sensitivity=0.6)
 		self.rc = recorder.Recorder()
+		self.tts = TTS()
 
 		t = threading.Thread(target=self.speechRecogStart)
 		t.daemon = True
@@ -49,23 +50,28 @@ class Form(QtWidgets.QDialog):
 
 
 	def gg(self):
-		snowboydecoder.play_audio_file()
 		self.detector.terminate()
-
+		snowboydecoder.play_audio_file(snowboydecoder.DETECT_DING)
 		audio_buffer = self.rc.record_audio()
+		snowboydecoder.play_audio_file(snowboydecoder.DETECT_DONG)
+
 		text = transcribe_streaming.transcribe_streaming(audio_buffer)
 
-		print(text)
 		self.ui.stt.setText(text)
-		tts = TTS()
+
+		
+
+		if text is None:
+			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
+			return
 
 		if "꺼져" in text:
-			tts.play_tts("뭐라했냐")
+			self.tts.play_tts("뭐라했냐")
 			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
 			return
 
 		if "안녕" in text:
-			tts.play_tts("반가워요!!!!!")
+			self.tts.play_tts("반가워요!!!!!")
 			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
 			return
 
@@ -73,9 +79,9 @@ class Form(QtWidgets.QDialog):
 			shuttle = Shuttle()
 			s_list = shuttle.get_shuttle('산기대', '정왕역')
 			if len(s_list) == 0:
-				tts.play_tts("탑승 가능한 셔틀버스가 존재하지 않습니다!!!!!")
+				self.tts.play_tts("탑승 가능한 셔틀버스가 존재하지 않습니다!!!!!")
 			else:
-				tts.play_tts("탑승 가능한 가장 빠른 셔틀은 " + s_list[0][2] + "이고 출발까지 " + str(s_list[0][3]) + "시간 " + str(s_list[0][4]) + "분 남았습니다.")
+				self.tts.play_tts("탑승 가능한 가장 빠른 셔틀은 " + s_list[0][2] + "이고 출발까지 " + str(s_list[0][3]) + "시간 " + str(s_list[0][4]) + "분 남았습니다.")
 			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
 			return
 
@@ -83,9 +89,9 @@ class Form(QtWidgets.QDialog):
 			shuttle = Shuttle()
 			s_list = shuttle.get_shuttle('산기대', '오이도')
 			if len(s_list) == 0:
-				tts.play_tts("탑승 가능한 셔틀버스가 존재하지 않습니다!!!!!")
+				self.tts.play_tts("탑승 가능한 셔틀버스가 존재하지 않습니다!!!!!")
 			else:
-				tts.play_tts("탑승 가능한 가장 빠른 셔틀은 " + s_list[0][2] + "이고 출발까지 " + str(s_list[0][3]) + "시간 " + str(s_list[0][4]) + "분 남았습니다.")
+				self.tts.play_tts("탑승 가능한 가장 빠른 셔틀은 " + s_list[0][2] + "이고 출발까지 " + str(s_list[0][3]) + "시간 " + str(s_list[0][4]) + "분 남았습니다.")
 			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
 			return
 
@@ -93,15 +99,15 @@ class Form(QtWidgets.QDialog):
 			shuttle = Shuttle()
 			s_list = shuttle.get_shuttle('정왕역', '산기대')
 			if len(s_list) == 0:
-				tts.play_tts("탑승 가능한 셔틀버스가 존재하지 않습니다!!!!!")
+				self.tts.play_tts("탑승 가능한 셔틀버스가 존재하지 않습니다!!!!!")
 			else:
-				tts.play_tts("탑승 가능한 가장 빠른 셔틀은 " + s_list[0][2] + "이고 출발까지 " + str(s_list[0][3]) + "시간 " + str(s_list[0][4]) + "분 남았습니다.")
+				self.tts.play_tts("탑승 가능한 가장 빠른 셔틀은 " + s_list[0][2] + "이고 출발까지 " + str(s_list[0][3]) + "시간 " + str(s_list[0][4]) + "분 남았습니다.")
 			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
 			return
 
 
 
-		tts.play_tts(text)
+		self.tts.play_tts('잘 알아듣지 못했습니다? 똑바로 말해라?')
 		self.detector.start(detected_callback=self.gg , sleep_time=0.03)
 		
 if __name__ == '__main__':
