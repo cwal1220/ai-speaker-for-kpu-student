@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Notice</class>
+ <widget class="QWidget" name="Notice">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>NoticeWidget</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QLabel{color: rgb(255, 255, 255);}</string>
+  </property>
+  <widget class="QLabel" name="label_haksa">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>5</y>
+     <width>90</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>학사공지</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_haksa_num1">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>- 번호 12345</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_haksa_date1">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>30</y>
+     <width>95</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>날짜 2018.05.11</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_haksa_sub1">
+   <property name="geometry">
+    <rect>
+     <x>18</x>
+     <y>50</y>
+     <width>371</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>내용가리어카센타조알라딘에서책사고싶다람쥐유아이놈들아</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_haksa_sub2">
+   <property name="geometry">
+    <rect>
+     <x>18</x>
+     <y>90</y>
+     <width>371</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>내용가리어카센타조알라딘에서책사고싶다람쥐유아이놈들아</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_haksa_date2">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>70</y>
+     <width>95</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>날짜 2018.05.11</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_haksa_num2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>70</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>- 번호 12345</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_haksa_num3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>110</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>- 번호 12345</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_haksa_sub3">
+   <property name="geometry">
+    <rect>
+     <x>18</x>
+     <y>130</y>
+     <width>371</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>내용가리어카센타조알라딘에서책사고싶다람쥐유아이놈들아</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_haksa_date3">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>110</y>
+     <width>95</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>날짜 2018.05.11</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_job_sub1">
+   <property name="geometry">
+    <rect>
+     <x>18</x>
+     <y>200</y>
+     <width>371</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>내용가리어카센타조알라딘에서책사고싶다람쥐유아이놈들아</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_job_sub3">
+   <property name="geometry">
+    <rect>
+     <x>18</x>
+     <y>280</y>
+     <width>371</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>내용가리어카센타조알라딘에서책사고싶다람쥐유아이놈들아</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_job_num2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>- 번호 12345</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_job_date3">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>260</y>
+     <width>95</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>날짜 2018.05.11</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_job_sub2">
+   <property name="geometry">
+    <rect>
+     <x>18</x>
+     <y>240</y>
+     <width>371</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>내용가리어카센타조알라딘에서책사고싶다람쥐유아이놈들아</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_job_num3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>260</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>- 번호 12345</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_job_date1">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>180</y>
+     <width>95</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>날짜 2018.05.11</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_job">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>155</y>
+     <width>90</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>장학공지</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_job_num1">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>180</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>- 번호 12345</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_job_date2">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>220</y>
+     <width>95</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>날짜 2018.05.11</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_general_sub1">
+   <property name="geometry">
+    <rect>
+     <x>18</x>
+     <y>350</y>
+     <width>371</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>내용가리어카센타조알라딘에서책사고싶다람쥐유아이놈들아</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_general_sub3">
+   <property name="geometry">
+    <rect>
+     <x>18</x>
+     <y>430</y>
+     <width>371</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>내용가리어카센타조알라딘에서책사고싶다람쥐유아이놈들아</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_general_num2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>370</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>- 번호 12345</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_general_date3">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>410</y>
+     <width>95</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>날짜 2018.05.11</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_general_sub2">
+   <property name="geometry">
+    <rect>
+     <x>18</x>
+     <y>390</y>
+     <width>371</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>내용가리어카센타조알라딘에서책사고싶다람쥐유아이놈들아</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_general_num3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>410</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>- 번호 12345</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_general_date1">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>330</y>
+     <width>95</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>날짜 2018.05.11</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_general">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>305</y>
+     <width>90</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>일반공지</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_general_num1">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>330</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>- 번호 12345</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_general_date2">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>370</y>
+     <width>95</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>날짜 2018.05.11</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_haksa_writer1">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>30</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>작성자 교수학습지원센터</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_haksa_writer2">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>70</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>작성자 교수학습지원센터</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_haksa_writer3">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>110</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>작성자 교수학습지원센터</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_job_writer1">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>180</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>작성자 교수학습지원센터</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_job_writer3">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>260</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>작성자 교수학습지원센터</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_job_writer2">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>220</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>작성자 교수학습지원센터</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_general_writer1">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>330</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>작성자 교수학습지원센터</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_general_writer3">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>410</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>작성자 교수학습지원센터</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_general_writer2">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>370</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>작성자 교수학습지원센터</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
