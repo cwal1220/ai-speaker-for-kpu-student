@@ -57,7 +57,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def on_or_off_mark(self, on=False):
         if on:
-            self.label_notice.setPixmap(QtGui.QPixmap("img/notice.png"))
+            self.label_notice.setPixmap(QtGui.QPixmap("image/notice.png"))
         else:
             self.label_notice.clear()
 
