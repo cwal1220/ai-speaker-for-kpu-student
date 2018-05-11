@@ -1,10 +1,10 @@
 CREATE TABLE foodcourt
 (
-	index int,
-	name varchar(30),
+	idx int primary key,
+	name varchar(40),
 	restorant varchar(20),
 	price int
-)
+);
 
 
 insert into foodcourt values(160, "철판참치김치덮밥", "김밥천국", 3500);
@@ -58,7 +58,7 @@ insert into foodcourt values(12, "김치알돌솥밥", "U9", 4000);
 
 
 insert into foodcourt values(148, "양념감자오믈렛", "한스델리", 3500);
-insert into foodcourt values(16, "갈릭함박스테이크오믈렛", "한스델리", 00);
+insert into foodcourt values(16, "갈릭함박스테이크오믈렛", "한스델리", 4000);
 insert into foodcourt values(26, "치킨볼오믈렛", "한스델리", 4000);
 insert into foodcourt values(24, "불닭오믈렛", "한스델리", 4000);
 insert into foodcourt values(82, "소고기필라프", "한스델리", 4000);
@@ -79,6 +79,33 @@ insert into foodcourt values(90, "매운참치비빔밥", "한스델리", 3500);
 insert into foodcourt values(21, "치즈오븐치킨라이스", "한스델리", 4000);
 insert into foodcourt values(123, "불닭치즈도리아", "한스델리", 4000);
 insert into foodcourt values(124, "모듬수제비", "한스델리", 4000);
+
+
+
+
+insert into foodcourt values(41, "폭찹스테이크덮밥", "손쉐프", 4000);
+insert into foodcourt values(140, "대패삼겹덮밥", "손쉐프", 4000);
+insert into foodcourt values(40, "쉐프치킨덮밥", "손쉐프", 4500);
+insert into foodcourt values(84, "철판주먹밥?", "손쉐프", 4500);
+insert into foodcourt values(121, "뚝날치알밥", "손쉐프", 4000);
+insert into foodcourt values(75, "궁보찜닭", "손쉐프", 4000);
+insert into foodcourt values(37, "탕수육세트", "손쉐프", 5000);
+insert into foodcourt values(38, "쉐프치킨세트", "손쉐프", 5000);
+insert into foodcourt values(141, "왕난자완스덮밥", "손쉐프", 4500);
+insert into foodcourt values(87, "소고기쌀국수", "손쉐프", 4000);
+insert into foodcourt values(77, "우동", "손쉐프", 3000);
+insert into foodcourt values(39, "크림짬뽕", "손쉐프", 4000);
+insert into foodcourt values(32, "짜장면", "손쉐프", 2500);
+insert into foodcourt values(31, "짬뽕", "손쉐프", 3000);
+insert into foodcourt values(42, "탕수육볶음밥", "손쉐프", 5000);
+insert into foodcourt values(65, "탕짜면", "손쉐프", 4500);
+insert into foodcourt values(66, "탕짬면", "손쉐프", 4500);
+insert into foodcourt values(46, "짬짜면", "손쉐프", 3500);
+insert into foodcourt values(34, "볶음밥+짜장", "손쉐프", 4000);
+insert into foodcourt values(36, "탕수육", "손쉐프", 10000);
+insert into foodcourt values(35, "깐풍기", "손쉐프", 10000);
+insert into foodcourt values(45, "빨간당면", "손쉐프", 4000);
+insert into foodcourt values(43, "콩국수", "손쉐프", 4000);
 
 
 
