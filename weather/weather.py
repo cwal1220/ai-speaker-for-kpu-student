@@ -16,7 +16,7 @@ def get_weather_str(addr, temp, tmax, tmin, sky, dust, dust_str):
 	return weather_str
 
 
-def get_weather(lat, lon, time=0):
+def get_weather(lat, lon):
 
 	current_weather = requests.get("https://api2.sktelecom.com/weather/current/hourly?version=1&lat={}&lon={}&appKey=fda2fe2c-3ad4-42fd-9162-4ad9ce9bf0e5".format(lat, lon))
 	current_result = current_weather.json()
@@ -37,8 +37,8 @@ def get_weather(lat, lon, time=0):
 	addr = pos.get_addr(lat, lon)
 	dust, dust_str = mise.get_mise(addr[:2])
 
-	if time == 0:
-		return get_weather_str(addr, temperature, tmax, tmin, sky_dict[sky_code], dust, dust_str)
-	else:
-		return "내일의 최고 기온은 {tmax} 도, 최저 기온은 {tmin} 도 이며, {sky}가 예상됩니다. ".format(tmax=tomorrow_tmax, tmin=tomorrow_tmin, sky=tomorrow_sky_dict[tomorrow_sky_code])
-		
+	tomorrow_info = {'sky_code': tomorrow_sky_code, 't_max': tomorrow_tmax,'t_min': tomorrow_tmin}
+
+	info_dict = {'addr': addr, 't_temp': temperature, 't_max': tmax, 't_min': tmin, 'sky_code':sky_code, 'dust': dust, 'tomorrow': tomorrow_info, 'str': get_weather_str(addr, temperature, tmax, tmin, sky_dict[sky_code], dust, dust_str)}
+
+	return info_dict
