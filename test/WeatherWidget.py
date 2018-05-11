@@ -206,13 +206,13 @@ class WeatherWidget(QWidget):
 
 
 	def render(self, info_dict):
-		self.sky_today
-		self.tmax_today.setText("58도")
-		self.tmin_today.setText("60도")
+		self.sky_today.setStyleSheet("image: url({}.png);".format(info_dict['sky_code']))
+		self.tmax_today.setText("{}도".format(info_dict['t_max']))
+		self.tmin_today.setText("{}도".format(info_dict['t_min']))
 
-		self.dust
-		self.dust_str.setText("hehe")
+		self.dust.setText("{}g/m".format(info_dict['dust']))
+		self.dust_str.setText(info_dict['dust_str'])
 
-		self.sky_tomorrow
-		self.tmax_tomorrow.setText("87도")
-		self.tmin_tomorrow.setText("99도")
+		self.sky_tomorrow.setStyleSheet("image: url({}.png);".format(info_dict['tomorrow']['sky_code']))
+		self.tmax_tomorrow.setText("{}도".format(format(info_dict['tomorrow']['t_max'])))
+		self.tmin_tomorrow.setText("{}도".format(format(info_dict['tomorrow']['t_min'])))
