@@ -347,7 +347,7 @@
     <string notr="true"/>
    </property>
    <property name="text">
-    <string>장학공지</string>
+    <string>취업공지</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_job_num1">

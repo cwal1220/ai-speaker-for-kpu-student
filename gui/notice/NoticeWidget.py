@@ -280,7 +280,7 @@ class Ui_Notice(object):
         self.label_job_sub2.setText(_translate("Notice", "내용가리어카센타조알라딘에서책사고싶다람쥐유아이놈들아"))
         self.label_job_num3.setText(_translate("Notice", "- 번호 12345"))
         self.label_job_date1.setText(_translate("Notice", "날짜 2018.05.11"))
-        self.label_job.setText(_translate("Notice", "장학공지"))
+        self.label_job.setText(_translate("Notice", "취업공지"))
         self.label_job_num1.setText(_translate("Notice", "- 번호 12345"))
         self.label_job_date2.setText(_translate("Notice", "날짜 2018.05.11"))
         self.label_general_sub1.setText(_translate("Notice", "내용가리어카센타조알라딘에서책사고싶다람쥐유아이놈들아"))

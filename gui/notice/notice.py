@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from NoticeWidget import Ui_Notice
+from gui.notice.NoticeWidget import Ui_Notice
 from json import loads
 
 

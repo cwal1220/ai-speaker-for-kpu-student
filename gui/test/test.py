@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from TestWidget import Ui_Test
+from gui.test.TestWidget import Ui_Test
 
 
 class Test(QtWidgets.QWidget, Ui_Test):
