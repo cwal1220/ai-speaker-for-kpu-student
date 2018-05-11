@@ -7,16 +7,40 @@ from PyQt5 import uic
 from PyQt5 import QtCore
 from PyQt5.QtCore import pyqtSlot
 
-from stt import STT
+import recorder
+import transcribe_streaming
+
 from tts import TTS
+
 from shuttle import Shuttle
 import threading
+import snowboy.snowboydecoder as snowboydecoder
+import weather.weather as weather
+import gps
 
 class Form(QtWidgets.QDialog):
 	def __init__(self, parent=None):
 		QtWidgets.QDialog.__init__(self, parent)
 		self.ui = uic.loadUi("untitled.ui", self)
 		self.ui.show()
+		self.lat = 37.340348
+		self.lon = 126.6984882
+
+		
+
+		self.detector = snowboydecoder.HotwordDetector('snowboy/resources/이놈아.pmdl', sensitivity=0.6)
+		self.rc = recorder.Recorder()
+		self.tts = TTS()
+
+		speech_thread = threading.Thread(target=self.speechRecogStart)
+		speech_thread.daemon = True
+		speech_thread.start()
+
+		gps_thread = threading.Thread(target=self.gpsStart)
+		gps_thread.daemon = True
+		gps_thread.start()
+
+		
 		
 	@pyqtSlot()
 	def slot_start(self):
@@ -30,67 +54,87 @@ class Form(QtWidgets.QDialog):
 	def slot_pause(self):
 		print("정지?")
 
+	def setLatLon(self, value):
+		self.lat = value[0]
+		self.lon = value[1]
+
+	def speechRecogStart(self):
+		self.detector.start(detected_callback=self.gg , sleep_time=0.03)
+
+	def gpsStart(self):
+		mygps = gps.GPS()
+		mygps.on_changed_gps.connect(self.setLatLon)
+		mygps.run()
 
 	def gg(self):
-		self.gsp = STT()
-		print("스레드 시작")
-		# 음성 인식 될때까지 대기 한다.
-		stt = self.gsp.getText()
-		# 만약 None이 반환되면
-		if stt is None:
-			return
-		print(stt)
-		self.ui.stt.setText(stt)
-		tts = TTS()
+		self.detector.terminate()
+		snowboydecoder.play_audio_file(snowboydecoder.DETECT_DING)
+		audio_buffer = self.rc.record_audio()
+		snowboydecoder.play_audio_file(snowboydecoder.DETECT_DONG)
 
-		if "꺼져" in stt:
-			tts.play_tts("뭐라했냐")
-			self.ui.button_start.setEnabled(True)
-			return
+		text = transcribe_streaming.transcribe_streaming(audio_buffer)
 
-		if "안녕" in stt:
-			tts.play_tts("반가워요!!!!!")
-			self.ui.button_start.setEnabled(True)
+		self.ui.stt.setText(text)
+
+		
+
+		if text is None:
+			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
 			return
 
-		if "셔틀" in stt and '정왕역' in stt:
+		if "날씨" in text:
+			self.tts.play_tts(weather.get_weather(self.lat, self.lon))
+			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
+			return
+
+		if "꺼져" in text:
+			self.tts.play_tts("뭐라했냐")
+			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
+			return
+
+		if "안녕" in text:
+			self.tts.play_tts("반가워요!!!!!")
+			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
+			return
+
+		if "셔틀" in text and '정왕역' in text:
 			shuttle = Shuttle()
 			s_list = shuttle.get_shuttle('산기대', '정왕역')
 			if len(s_list) == 0:
-				tts.play_tts("탑승 가능한 셔틀버스가 존재하지 않습니다!!!!!")
+				self.tts.play_tts("탑승 가능한 셔틀버스가 존재하지 않습니다!!!!!")
 			else:
-				tts.play_tts("탑승 가능한 가장 빠른 셔틀은 " + s_list[0][2] + "이고 출발까지 " + str(s_list[0][3]) + "시간 " + str(s_list[0][4]) + "분 남았습니다.")
-			self.ui.button_start.setEnabled(True)
+				self.tts.play_tts("탑승 가능한 가장 빠른 셔틀은 " + s_list[0][2] + "이고 출발까지 " + str(s_list[0][3]) + "시간 " + str(s_list[0][4]) + "분 남았습니다.")
+			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
 			return
 
-		if "셔틀" in stt and '오이도' in stt:
+		if "셔틀" in text and '오이도' in text:
 			shuttle = Shuttle()
 			s_list = shuttle.get_shuttle('산기대', '오이도')
 			if len(s_list) == 0:
-				tts.play_tts("탑승 가능한 셔틀버스가 존재하지 않습니다!!!!!")
+				self.tts.play_tts("탑승 가능한 셔틀버스가 존재하지 않습니다!!!!!")
 			else:
-				tts.play_tts("탑승 가능한 가장 빠른 셔틀은 " + s_list[0][2] + "이고 출발까지 " + str(s_list[0][3]) + "시간 " + str(s_list[0][4]) + "분 남았습니다.")
-			self.ui.button_start.setEnabled(True)
+				self.tts.play_tts("탑승 가능한 가장 빠른 셔틀은 " + s_list[0][2] + "이고 출발까지 " + str(s_list[0][3]) + "시간 " + str(s_list[0][4]) + "분 남았습니다.")
+			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
 			return
 
-		if "셔틀" in stt and '학교' in stt:
+		if "셔틀" in text and '학교' in text:
 			shuttle = Shuttle()
 			s_list = shuttle.get_shuttle('정왕역', '산기대')
 			if len(s_list) == 0:
-				tts.play_tts("탑승 가능한 셔틀버스가 존재하지 않습니다!!!!!")
+				self.tts.play_tts("탑승 가능한 셔틀버스가 존재하지 않습니다!!!!!")
 			else:
-				tts.play_tts("탑승 가능한 가장 빠른 셔틀은 " + s_list[0][2] + "이고 출발까지 " + str(s_list[0][3]) + "시간 " + str(s_list[0][4]) + "분 남았습니다.")
-			self.ui.button_start.setEnabled(True)
+				self.tts.play_tts("탑승 가능한 가장 빠른 셔틀은 " + s_list[0][2] + "이고 출발까지 " + str(s_list[0][3]) + "시간 " + str(s_list[0][4]) + "분 남았습니다.")
+			self.detector.start(detected_callback=self.gg , sleep_time=0.03)
 			return
 
 
 
-		tts.play_tts(stt)
-		self.ui.button_start.setEnabled(True)
+		self.tts.play_tts('잘 알아듣지 못했습니다? 똑바로 말해라?')
+		self.detector.start(detected_callback=self.gg , sleep_time=0.03)
 		
 if __name__ == '__main__':
 	import os
-	os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/pi/MyMic-b737a86ac104.json"
+	# os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/pi/MyMic-b737a86ac104.json"
 	app = QtWidgets.QApplication(sys.argv)
 	w = Form()
 	sys.exit(app.exec())
