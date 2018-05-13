@@ -26,19 +26,22 @@ def get_weather(lat, lon):
 	summary_weather = requests.get("https://api2.sktelecom.com/weather/summary?version=1&lat={}&lon={}&appKey=fda2fe2c-3ad4-42fd-9162-4ad9ce9bf0e5".format(lat, lon))
 	result = summary_weather.json()
 
-	sky_code = result['weather']['summary'][0]['today']['sky']['code']
+	sky_code = result['weather']['summary'][0]['today']['sky']['name']
+	sky_code_str = result['weather']['summary'][0]['today']['sky']['code']
 	tmax = result['weather']['summary'][0]['today']['temperature']['tmax']
 	tmin = result['weather']['summary'][0]['today']['temperature']['tmin']
 
 	tomorrow_sky_code = result['weather']['summary'][0]['tomorrow']['sky']['code']
+	tomorrow_sky_code_str = result['weather']['summary'][0]['tomorrow']['sky']['name']
 	tomorrow_tmax = result['weather']['summary'][0]['tomorrow']['temperature']['tmax']
 	tomorrow_tmin = result['weather']['summary'][0]['tomorrow']['temperature']['tmin']
+
 
 	addr = pos.get_addr(lat, lon)
 	dust, dust_str = mise.get_mise(addr[:2])
 
-	tomorrow_info = {'sky_code': tomorrow_sky_code, 't_max': tomorrow_tmax,'t_min': tomorrow_tmin}
+	tomorrow_info = {'sky_code': tomorrow_sky_code, 'sky_name': tomorrow_sky_code_str, 't_max': tomorrow_tmax,'t_min': tomorrow_tmin}
 
-	info_dict = {'addr': addr, 't_temp': temperature, 't_max': tmax, 't_min': tmin, 'sky_code':sky_code, 'dust': dust, 'tomorrow': tomorrow_info, 'str': get_weather_str(addr, temperature, tmax, tmin, sky_dict[sky_code], dust, dust_str)}
+	info_dict = {'addr': addr, 't_temp': temperature, 't_max': tmax, 't_min': tmin, 'sky_code':sky_code, 'sky_name': sky_code_str, 'dust': dust, 'tomorrow': tomorrow_info, 'str': get_weather_str(addr, temperature, tmax, tmin, sky_dict[sky_code], dust, dust_str)}
 
 	return info_dict

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0" colspan="6">
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" colspan="6">
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="styleSheet">
+        <string notr="true">image: url(start.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="5">
+      <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;HY헤드라인M&quot;;
+color : rgb(255, 32, 43);</string>
+       </property>
+       <property name="text">
+        <string>산기대</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="4">
+      <widget class="QLabel" name="destination">
+       <property name="styleSheet">
+        <string notr="true">image: url(finish.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="label_7">
+       <property name="styleSheet">
+        <string notr="true">image: url(kpu.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2" colspan="4">
+      <widget class="QLabel" name="label_4">
+       <property name="styleSheet">
+        <string notr="true">font: 14pt &quot;HY헤드라인M&quot;;</string>
+       </property>
+       <property name="text">
+        <string>[ 셔틀버스 시간표 ]</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="departure">
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;HY헤드라인M&quot;;
+color : rgb(32, 43, 255);</string>
+       </property>
+       <property name="text">
+        <string>정왕역</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2" colspan="2">
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">font: 25pt &quot;Agency FB&quot;;</string>
+       </property>
+       <property name="text">
+        <string>→</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2" colspan="4">
+      <widget class="QLabel" name="label_9">
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;HY헤드라인M&quot;;</string>
+       </property>
+       <property name="text">
+        <string>탑승 시간</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2" colspan="4">
+      <widget class="QLabel" name="time_1">
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;HY헤드라인M&quot;;</string>
+       </property>
+       <property name="text">
+        <string>탑승 가능한 버스가 없습니다.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2" colspan="4">
+      <widget class="QLabel" name="time_2">
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;HY헤드라인M&quot;;</string>
+       </property>
+       <property name="text">
+        <string>탑승 가능한 버스가 없습니다.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="2" colspan="4">
+      <widget class="QLabel" name="time_3">
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;HY헤드라인M&quot;;</string>
+       </property>
+       <property name="text">
+        <string>탑승 가능한 버스가 없습니다.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="2" colspan="4">
+      <widget class="QLabel" name="time_4">
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;HY헤드라인M&quot;;</string>
+       </property>
+       <property name="text">
+        <string>탑승 가능한 버스가 없습니다.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="2" colspan="4">
+      <widget class="QLabel" name="time_5">
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;HY헤드라인M&quot;;</string>
+       </property>
+       <property name="text">
+        <string>탑승 가능한 버스가 없습니다.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="label_8">
+       <property name="styleSheet">
+        <string notr="true">font: 10pt &quot;HY헤드라인M&quot;;</string>
+       </property>
+       <property name="text">
+        <string>순서</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLabel" name="label_15">
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;HY헤드라인M&quot;;</string>
+       </property>
+       <property name="text">
+        <string>[ 1 ]</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="label_16">
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;HY헤드라인M&quot;;</string>
+       </property>
+       <property name="text">
+        <string>[ 2 ]</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="label_17">
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;HY헤드라인M&quot;;</string>
+       </property>
+       <property name="text">
+        <string>[ 3 ]</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLabel" name="label_18">
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;HY헤드라인M&quot;;</string>
+       </property>
+       <property name="text">
+        <string>[ 4 ]</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLabel" name="label_19">
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;HY헤드라인M&quot;;</string>
+       </property>
+       <property name="text">
+        <string>[ 5 ]</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_20">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(12, 234, 64);</string>
+       </property>
+       <property name="text">
+        <string>★</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_21">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(12, 234, 64);</string>
+       </property>
+       <property name="text">
+        <string>★</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_22">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(12, 234, 64);</string>
+       </property>
+       <property name="text">
+        <string>★</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_23">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(12, 234, 64);</string>
+       </property>
+       <property name="text">
+        <string>★</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="label_24">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(12, 234, 64);</string>
+       </property>
+       <property name="text">
+        <string>★</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
