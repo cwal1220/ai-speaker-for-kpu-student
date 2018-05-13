@@ -10,6 +10,7 @@ import time
 class FoodWidget(QWidget):
 	def __init__(self, parent):
 		super(FoodWidget, self).__init__(parent)
+		self.path = os.getcwd()
 		self.gridLayout_2 = QGridLayout(self)
 		self.gridLayout_2.setObjectName("gridLayout_2")
 		self.gridLayout = QGridLayout()
@@ -56,7 +57,7 @@ class FoodWidget(QWidget):
 		return rows
 
 	def render(self):
-		self.size = len(food_list)
+		self.size = len(self.food_list)
 		self.timer.timeout.connect(self.callback)
 		self.timer.start()
 
@@ -71,11 +72,11 @@ class FoodWidget(QWidget):
 
 	def drawer(self):
 		if self.is_click:
-			file_path = 'image/' + str(self.food_list[self.count][0]) + ".jpg"
+			file_path = self.path + '/gui/food/image/' + str(self.food_list[self.count][0]) + ".jpg"
 			if os.path.exists(file_path):
 				self.image.setStyleSheet("image: url({});".format(file_path))
 			else:
-				self.image.setStyleSheet("image: url(image/null.jpg);")
+				self.image.setStyleSheet("image: url(" + self.path + "/gui/food/image/null.jpg);")
 
 			self.food_name.setText("[ " + self.food_list[self.count][1] + " ]")
 			self.restorant_name.setText("[ " + self.food_list[self.count][2] + " ]")

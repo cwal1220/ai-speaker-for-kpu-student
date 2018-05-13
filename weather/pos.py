@@ -1,12 +1,12 @@
 import json
 import urllib.request
-import json
 
 def get_addr(lat, lon):
 	client_id = "6vNW1jYKk6ETlhsx4QAB"
 	client_secret = "80mPSyDfbA"
 	encText = urllib.parse.quote("{},{}".format(lon, lat))
-	url = "https://openapi.naver.com/v1/map/reversegeocode?query=" + encText # json 결과
+	url = "https://openapi.naver.com/v1/map/reversegeocode?query=" + encText
+
 	request = urllib.request.Request(url)
 	request.add_header("X-Naver-Client-Id",client_id)
 	request.add_header("X-Naver-Client-Secret",client_secret)
@@ -22,3 +22,6 @@ def get_addr(lat, lon):
 	else:
 		print("Error Code:" + rescode)
 		return 'error'
+
+if __name__ == "__main__":
+	print(get_addr(37,127))

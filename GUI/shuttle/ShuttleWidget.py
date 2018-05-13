@@ -2,9 +2,12 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 
+import os
+
 class ShuttleWidget(QWidget):
 	def __init__(self, parent):
 		super(ShuttleWidget, self).__init__(parent)
+		self.path = os.getcwd()
 		self.gridLayout_2 = QGridLayout(self)
 		self.gridLayout_2.setObjectName("gridLayout_2")
 		self.gridLayout = QGridLayout()
@@ -20,7 +23,7 @@ class ShuttleWidget(QWidget):
 		self.line_2.setObjectName("line_2")
 		self.gridLayout.addWidget(self.line_2, 3, 0, 1, 6)
 		self.label_5 = QLabel(self)
-		self.label_5.setStyleSheet("image: url(start.png);")
+		self.label_5.setStyleSheet("image: url(" + self.path + "/gui/shuttle/start.png);")
 		self.label_5.setText("")
 		self.label_5.setObjectName("label_5")
 		self.gridLayout.addWidget(self.label_5, 2, 0, 1, 1)
@@ -31,12 +34,12 @@ class ShuttleWidget(QWidget):
 		self.destination.setObjectName("destination")
 		self.gridLayout.addWidget(self.destination, 2, 5, 1, 1)
 		self.label_3 = QLabel(self)
-		self.label_3.setStyleSheet("image: url(finish.png);")
+		self.label_3.setStyleSheet("image: url(" + self.path + "/gui/shuttle/finish.png);")
 		self.label_3.setText("")
 		self.label_3.setObjectName("label_3")
 		self.gridLayout.addWidget(self.label_3, 2, 4, 1, 1)
 		self.label_7 = QLabel(self)
-		self.label_7.setStyleSheet("image: url(kpu.png);")
+		self.label_7.setStyleSheet("image: url(" + self.path + "/gui/shuttle/kpu.png);")
 		self.label_7.setText("")
 		self.label_7.setObjectName("label_7")
 		self.gridLayout.addWidget(self.label_7, 0, 0, 1, 2)
@@ -172,6 +175,10 @@ class ShuttleWidget(QWidget):
 		if len(bus_list):
 			self.destination.setText(bus_list[0][1])
 			self.departure.setText(bus_list[0][0])
+			print(len(bus_list), len(text_widget))
 			for i in bus_list:
 				text_widget[idx].setText('{} -> [ 출발까지 {}시간 {}분 ]'.format(i[2], i[3], i[4]))
-				idx = idx + 1
+				if idx is 4:
+					break
+				else:
+					idx = idx + 1

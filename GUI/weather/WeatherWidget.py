@@ -1,11 +1,12 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-
+import os
 
 class WeatherWidget(QWidget):
 	def __init__(self, parent):
 		super(WeatherWidget, self).__init__(parent)
+		self.path = os.getcwd() + "/gui/weather/"
 		self.horizontalLayout_2 = QHBoxLayout(self)
 		self.horizontalLayout_2.setObjectName("horizontalLayout_2")
 		self.gridLayout = QGridLayout()
@@ -25,17 +26,17 @@ class WeatherWidget(QWidget):
 		font.setFamily("Agency FB")
 		font.setPointSize(50)
 		self.label_23.setFont(font)
-		self.label_23.setStyleSheet("image: url(dust.png);")
+		self.label_23.setStyleSheet("image: url(" + self.path + "dust.png);")
 		self.label_23.setText("")
 		self.label_23.setObjectName("label_23")
 		self.gridLayout.addWidget(self.label_23, 5, 4, 1, 1)
 		self.label_19 = QLabel(self)
-		self.label_19.setStyleSheet("image: url(high.png);")
+		self.label_19.setStyleSheet("image: url(" + self.path + "high.png);")
 		self.label_19.setText("")
 		self.label_19.setObjectName("label_19")
 		self.gridLayout.addWidget(self.label_19, 2, 4, 1, 1)
 		self.asdasdad = QLabel(self)
-		self.asdasdad.setStyleSheet("image: url(high.png);")
+		self.asdasdad.setStyleSheet("image: url(" + self.path + "high.png);")
 		self.asdasdad.setText("")
 		self.asdasdad.setObjectName("asdasdad")
 		self.gridLayout.addWidget(self.asdasdad, 9, 4, 1, 1)
@@ -70,7 +71,7 @@ class WeatherWidget(QWidget):
 		self.label_10.setObjectName("label_10")
 		self.gridLayout.addWidget(self.label_10, 4, 1, 1, 2)
 		self.asdads = QLabel(self)
-		self.asdads.setStyleSheet("image: url(low.png);")
+		self.asdads.setStyleSheet("image: url(" + self.path + "low.png);")
 		self.asdads.setText("")
 		self.asdads.setObjectName("asdads")
 		self.gridLayout.addWidget(self.asdads, 2, 7, 1, 1)
@@ -155,7 +156,7 @@ class WeatherWidget(QWidget):
 		self.line_3.setObjectName("line_3")
 		self.gridLayout.addWidget(self.line_3, 1, 6, 2, 1)
 		self.label_22 = QLabel(self)
-		self.label_22.setStyleSheet("image: url(low.png);")
+		self.label_22.setStyleSheet("image: url(" + self.path + "low.png);")
 		self.label_22.setText("")
 		self.label_22.setObjectName("label_22")
 		self.gridLayout.addWidget(self.label_22, 9, 7, 1, 1)
@@ -165,7 +166,7 @@ class WeatherWidget(QWidget):
 		self.tmin_today.setObjectName("tmin_today")
 		self.gridLayout.addWidget(self.tmin_today, 2, 8, 1, 1)
 		self.label_9 = QLabel(self)
-		self.label_9.setStyleSheet("image: url(high.png);")
+		self.label_9.setStyleSheet("image: url(" + self.path + "high.png);")
 		self.label_9.setText("")
 		self.label_9.setAlignment(Qt.AlignCenter)
 		self.label_9.setObjectName("label_9")
@@ -232,7 +233,9 @@ class WeatherWidget(QWidget):
 
 
 	def render(self, info_dict):
-		self.sky_today.setStyleSheet("image: url({}.png);".format(info_dict['sky_code']))
+		self.sky_today.setStyleSheet("image: url({}.PNG);".format(self.path + info_dict['sky_code']))
+		print("image: url({}.PNG);".format(self.path + info_dict['sky_code']))
+		
 		self.sky_name_today.setText(info_dict['sky_name'])
 		self.tmax_today.setText("{}℃".format(info_dict['t_max']))
 		self.tmin_today.setText("{}℃".format(info_dict['t_min']))
@@ -241,7 +244,7 @@ class WeatherWidget(QWidget):
 		self.dust.setText("{}㎍/㎥".format(info_dict['dust']))
 		self.dust_str.setText(info_dict['dust_str'])
 
-		self.sky_tomorrow.setStyleSheet("image: url({}.png);".format(info_dict['tomorrow']['sky_code']))
+		self.sky_tomorrow.setStyleSheet("image: url({}.PNG);".format(self.path + info_dict['tomorrow']['sky_code']))
 		self.sky_name_tomorrow.setText(info_dict['tomorrow']['sky_name'])
 		self.tmax_tomorrow.setText("{}℃".format(format(info_dict['tomorrow']['t_max'])))
 		self.tmin_tomorrow.setText("{}℃".format(format(info_dict['tomorrow']['t_min'])))

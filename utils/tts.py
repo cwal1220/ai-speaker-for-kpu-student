@@ -10,7 +10,7 @@ class TTS():
 		client_id = "6vNW1jYKk6ETlhsx4QAB"           # <= 변경 
 		client_secret = "80mPSyDfbA" # <= 변경
 		encText = urllib.parse.quote(text)
-		data = "speaker=" + speaker + "&speed=1&text=" + encText; # jinho,mijin, clara, matt, shinji, yuri
+		data = "speaker=" + speaker + "&speed=0&text=" + encText; # jinho,mijin, clara, matt, shinji, yuri
 		url = "https://openapi.naver.com/v1/voice/tts.bin"
 		request = urllib.request.Request(url)
 		request.add_header("X-Naver-Client-Id",client_id)

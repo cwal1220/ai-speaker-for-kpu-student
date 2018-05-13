@@ -3,7 +3,7 @@ import wave
 from array import array
 import os
 import sys
-import transcribe_streaming
+import utils.transcribe_streaming as transcribe_streaming
 
 # Set device number with get_dev_index.py.
 DEVICE_NUMBER = 2
