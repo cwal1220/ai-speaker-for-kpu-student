@@ -42,7 +42,7 @@ class Ui_MainWindow(object):
         self.widget.render({'t_temp':'22.2', 'sky_code':'SKY_D01','sky_name':'맑냐?', 't_max':'27.3', 't_min':'15.2', 'dust':'33', 'dust_str':'에바참치', 'tomorrow':{'sky_name': '오호호호', 'sky_code':'SKY_D01', 't_max':'33', 't_min':'22.2'}})
 
 
-from Weather import WeatherWidget
+from WeatherWidget import WeatherWidget
 
 if __name__ == "__main__":
     import sys
