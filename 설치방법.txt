@@ -1,0 +1,42 @@
+pip3 install bs4
+pip3 install pymysql
+apt-get install python3-pyqt5
+apt-get install mysql-client mysql-server
+sudo apt-get install libatlas-base-dev
+apt-get install libao2
+
+
+
+
+### .soundrc ####
+pcm.!default {
+    type asym
+    capture.pcm "mic"
+    playback.pcm "speaker"
+}
+
+pcm.mic {
+    type plug
+    slave {
+        pcm "hw:1,0"
+    }
+}
+
+pcm.speaker {
+    type plug
+    slave {
+        pcm "hw:0,0"
+    }
+}
+
+##############
+
+
+
+
+###DB¼³Á¤ ########
+sudo mysql -u root
+use mysql;
+update user set plugin='' where User='root';
+flush privileges;
+exit;

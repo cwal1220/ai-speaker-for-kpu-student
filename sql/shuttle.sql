@@ -1,3 +1,11 @@
+CREATE TABLE shuttle
+(
+	departure varchar(15),
+	destination varchar(15),
+	time time
+);
+
+
 insert into shuttle values('정왕역', '산기대', '08:40:00');
 insert into shuttle values('정왕역', '산기대', '08:52:00');
 insert into shuttle values('정왕역', '산기대', '08:58:00');
