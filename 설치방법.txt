@@ -1,3 +1,25 @@
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install git
+git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
+sudo apt install portaudio19-dev 
+cd python-docs-samples/speech/cloud-client
+sudo apt-get install python3-pip
+sudo pip3 install -r requirements.txt
+sudo pip3 install pyaudio
+
+
+sudo nano /usr/share/alsa/alsa.conf 파일에서
+  defaults.ctl.card 0
+  defaults.pcm.card 0
+alsa.conf 파일에서 Page Down 키를 3~4번 정도 누르면 이 위치로 가게 됩니다. 찾았으면 0들을 1로 고쳐줍니다.
+  defaults.ctl.card 1
+  defaults.pcm.card 1
+
+
+
+
+
 pip3 install bs4
 pip3 install pymysql
 apt-get install python3-pyqt5
