@@ -18,3 +18,7 @@
   - Google Cloud Speech API
   - Naver TTS API
   - SK planet Weather API
+
+- By....
+  - KPU 컴공 12학번 박찬
+  - KPU 컴공 12학번 구삼열
