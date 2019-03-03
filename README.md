@@ -8,7 +8,7 @@
   3. 웹 크롤링을 이용한 공지사항 알림
   4. GPS 기반 날씨 알림
   5. 셔틀버스 시간 알림
-  6. GUI
+  6. 구내식당 메뉴 추천 기능
   
 ## Hardware
   1. Raspberry PI 3 Model B
